@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes de Ações - Kurogumi</title>
+</head>
+<body>
+    <main class="main-content">
+        <header class="main-header">
+            <div class="header-title">
+                <h1>Detalhes de Ações</h1>
+                <p>Histórico e performance de todas as operações realizadas.</p>
+            </div>
+            <div class="header-actions">
+                <button id="refresh-button-acoes" class="btn-header" title="Atualizar Dados">
+                    <i class="fa-solid fa-sync-alt"></i> Atualizar
+                </button>
+            </div>
+        </header>
+
+        <div class="details-grid">
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="card-content">
+                        <small>Taxa de Sucesso</small>
+                        <h2 id="taxa-sucesso">0%</h2>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <div class="card-content">
+                        <small>Lucro Total</small>
+                        <h2 id="lucro-total">R$ 0,00</h2>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <div class="card-content">
+                        <small>Total de Ações</small>
+                        <h2 id="total-acoes">0</h2>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ranking-card">
+                <h3>Top 3 (Vitórias em Ações)</h3>
+                <div class="ranking-list" id="top-membros-list">
+                </div>
+            </section>
+
+            <section class="table-card">
+                <div class="card-header">
+                    <h3>Histórico de Operações</h3>
+                    <input type="text" id="search-input" class="search-input" placeholder="Buscar por nome da ação ou responsável...">
+                </div>
+                <div class="table-wrapper">
+                    <table id="acoes-table">
+                        <thead>
+                            <tr>
+                                <th class="col-data-acao">Data</th>
+                                <th class="col-nome-acao">Nome da Ação</th>
+                                <th class="col-responsavel-acao">Responsável</th>
+                                <th class="col-membros-acao">Membros</th>
+                                <th class="col-status-acao">Status</th>
+                                <th class="text-right col-valor-acao">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="table-footer" id="pagination-controls">
+                </div>
+            </section>
+        </div>
+        
+        <div id="modal-container"></div>
+
+    </main>
+</body>
+</html>

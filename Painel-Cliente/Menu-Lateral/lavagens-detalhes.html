@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Extrato de Lavagens - Kurogumi</title>
+    <link rel="stylesheet" href="submenu-pages.css">
+</head>
+<body>
+    <main class="main-content">
+        <header class="main-header">
+            <div class="header-title">
+                <h1>Extrato de Lavagens</h1>
+                <p>Controle detalhado de todas as operações de lavagem de dinheiro.</p>
+            </div>
+            <div class="header-actions">
+                <button id="refresh-button-lavagens" class="btn-header" title="Atualizar Dados">
+                    <i class="fa-solid fa-sync-alt"></i> Atualizar
+                </button>
+            </div>
+        </header>
+
+        <div class="details-grid">
+            <section class="kpi-grid">
+                 <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-soap"></i></div>
+                    <div class="card-content">
+                        <small>Valor Total Lavado</small>
+                        <h2 id="valor-bruto">R$ 0,00</h2>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <div class="card-content">
+                        <small>Comissão (Lucro FAC)</small>
+                        <h2 id="comissao-total">R$ 0,00</h2>
+                    </div>
+                </div>
+                 <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-percentage"></i></div>
+                    <div class="card-content">
+                        <small>Perca da Máquina</small>
+                        <h2 id="perca-maquina">R$ 0,00</h2>
+                    </div>
+                </div>
+            </section>
+
+            <section class="chart-card">
+                <h3>Volume de Lavagem Diário (Lucro FAC)</h3>
+                <canvas id="lavagensChart"></canvas>
+            </section>
+
+            <section class="table-card" style="grid-column: span 12;">
+                <div class="card-header">
+                    <h3>Todas as Lavagens</h3>
+                    <input type="text" id="search-input" class="search-input" placeholder="Buscar por membro ou fac/pista...">
+                </div>
+                <div class="table-wrapper">
+                    <table id="lavagens-table">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Membro</th>
+                                <th>Cliente (FAC/Pista)</th>
+                                <th class="text-right">Valor Lavado</th>
+                                <th class="text-right">Lucro do Cliente</th>
+                                <th class="text-right">Lucro da FAC</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="table-footer" id="pagination-controls">
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

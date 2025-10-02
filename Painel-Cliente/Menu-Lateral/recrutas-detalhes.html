@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico de Recrutas - Kurogumi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="submenu-pages.css"> 
+</head>
+<body>
+    <main class="main-content">
+        <header class="main-header">
+            <div class="header-title">
+                <h1>Histórico de Recrutas</h1>
+                <p>Gerenciamento de todos os processos de recrutamento.</p>
+            </div>
+            <div class="header-actions">
+                <button id="refresh-button" class="btn-header" title="Atualizar Dados">
+                    <i class="fa-solid fa-sync-alt"></i> Atualizar
+                </button>
+            </div>
+        </header>
+
+        <div class="details-grid">
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-user-check"></i></div>
+                    <div class="card-content">
+                        <small>Aprovados</small>
+                        <h2 id="total-aprovados">0</h2>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-user-times"></i></div>
+                    <div class="card-content">
+                        <small>Recusados</small>
+                        <h2 id="total-recusados">0</h2>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+                    <div class="card-content">
+                        <small>Pendentes</small>
+                        <h2 id="total-pendentes">0</h2>
+                    </div>
+                </div>
+            </section>
+
+            <section class="table-card" style="grid-column: span 12;">
+                <div class="card-header">
+                    <h3>Todos os Recrutamentos</h3>
+                    <input type="text" id="search-input" class="search-input" placeholder="Buscar por nome do recruta...">
+                </div>
+                <div class="table-wrapper">
+                    <table id="recrutas-table">
+                        <thead>
+                            <tr>
+                                <th class="col-data">Data</th>
+                                <th class="col-recruta">Recruta</th>
+                                <th class="col-id">ID</th>
+                                <th class="col-numero">Número</th>
+                                <th class="col-recrutador">Recrutador</th>
+                                <th class="col-status">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-footer" id="pagination-controls">
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

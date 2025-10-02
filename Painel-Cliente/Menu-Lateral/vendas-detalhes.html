@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Extrato de Vendas - Kurogumi</title>
+    <link rel="stylesheet" href="submenu-pages.css">
+</head>
+<body>
+    <main class="main-content">
+        <header class="main-header">
+            <div class="header-title">
+                <h1>Extrato de Vendas</h1>
+                <p>Análise detalhada de todas as transações de vendas registradas.</p>
+            </div>
+            </header>
+
+        <div class="details-grid">
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+                    <div class="card-content">
+                        <small>Faturamento Total</small>
+                        <h2 id="faturamento-total">R$ 0,00</h2>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-receipt"></i></div>
+                    <div class="card-content">
+                        <small>Total de Vendas</small>
+                        <h2 id="total-vendas">0</h2>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="card-content">
+                        <small>Ticket Médio</small>
+                        <h2 id="ticket-medio">R$ 0,00</h2>
+                    </div>
+                </div>
+            </section>
+
+            <section class="chart-card">
+                <h3>Faturamento nos Últimos Dias</h3>
+                <canvas id="vendasChart"></canvas>
+            </section>
+
+            <section class="ranking-card">
+                <h3>Top Vendedores</h3>
+                <div class="ranking-list" id="top-vendedores-list">
+                    </div>
+            </section>
+
+            <section class="table-card">
+                <div class="card-header">
+                    <h3>Todas as Vendas</h3>
+                    <input type="text" id="search-input" class="search-input" placeholder="Buscar por vendedor, item ou cliente...">
+                </div>
+                <div class="table-wrapper">
+                    <table id="vendas-table">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Vendedor</th>
+                                <th>Itens</th>
+                                <th>Cliente</th>
+                                <th class="text-right">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

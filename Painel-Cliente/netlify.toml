@@ -1,0 +1,21 @@
+# Arquivo de configuração para o Netlify
+
+# Regra 1: Redireciona a chamada da API para o script do Google, agindo como um proxy
+[[redirects]]
+  # Qualquer chamada que começar com /api/ no seu site...
+  from = "/api/*"
+  # ...será redirecionada para a URL real do seu Google Script.
+  to = "https://script.google.com/macros/s/AKfycbyO7GJblaYWp-vzKTToVcjVNp3RLQi9SUGyzVJk7rKFDGPUMhKMXPPV_DlSZHjZUPEj/exec"
+  # O status 200 faz com que funcione como um proxy, e não um redirecionamento.
+  status = 200
+  # Força a regra a ser aplicada.
+  force = true
+
+# Regra 2: Garante que o dashboard.html seja a página principal
+[[redirects]]
+  # Esta regra diz ao Netlify: "Qualquer rota que o usuário tentar acessar..."
+  from = "/*"
+  # "...deve, na verdade, carregar o arquivo dashboard.html."
+  to = "/dashboard.html"
+  # O status 200 informa que este é o conteúdo a ser exibido.
+  status = 200

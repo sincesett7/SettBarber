@@ -1,0 +1,207 @@
+/* style-sett.css */
+:root {
+    --bg-primary: #0D0C12;       /* Fundo principal quase preto */
+    --bg-secondary: #1A1822;     /* Fundo dos cards e sidebar */
+    --bg-tertiary: #2A2736;      /* Cor para hover e elementos secundários */
+    --border-color: #3A3649;     /* Bordas sutis */
+
+    --text-primary: #EAECEF;     /* Texto principal branco */
+    --text-secondary: #A0A7B5;   /* Texto secundário acinzentado */
+
+    --accent-primary: #9E54FF;   /* Roxo principal */
+    --accent-secondary: #F72585; /* Rosa vibrante */
+    --accent-tertiary: #4CC9F0;   /* Ciano claro */
+
+    --accent-green: #3BA55D;
+    --accent-red: #ED4245;
+    --accent-yellow: #FAA61A;
+
+    --font-family: 'Poppins', sans-serif; /* Mantendo a fonte que você já usava */
+}
+
+/* --- Base e Estrutura --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+.page-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Sidebar (Barra Lateral) --- */
+.sidebar {
+    width: 260px;
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    transition: width 0.3s ease;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+.sidebar-header .logo {
+    height: 40px;
+    width: 40px;
+}
+.sidebar-header span {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+}
+
+.sidebar-nav a, .sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin-bottom: 0.5rem;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-nav a:hover, .sidebar-nav .nav-link:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-left-color: var(--accent-secondary);
+}
+
+.sidebar-nav a.active, .sidebar-nav .nav-link.active {
+    background-color: var(--accent-primary);
+    color: white;
+    font-weight: 600;
+    border-left-color: var(--accent-secondary);
+}
+
+.sidebar-nav a i, .sidebar-nav .nav-link i {
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+/* --- Conteúdo Principal --- */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem 3rem;
+    overflow-y: auto;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+.header-title h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.header-title p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* --- Cards --- */
+.card {
+    background: linear-gradient(145deg, var(--bg-secondary), #1E1C28);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+.card h3 i {
+    color: var(--accent-primary);
+}
+
+/* --- Tabelas --- */
+.table-wrapper {
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table th {
+    text-align: left;
+    padding-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-color);
+}
+table td {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 500;
+}
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+table tbody tr:hover {
+    background-color: var(--bg-tertiary);
+}
+
+/* --- Submenu --- */
+.submenu-arrow { transition: transform 0.3s ease; font-size: 0.8rem; }
+.nav-item.open .submenu-arrow { transform: rotate(180deg); }
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+.submenu-item {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    position: relative;
+    border-left: 2px solid var(--border-color);
+}
+.submenu-item.active, .submenu-item:hover {
+    color: var(--text-primary);
+    border-left-color: var(--accent-secondary);
+}

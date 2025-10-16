@@ -1,70 +1,91 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let allMembers = [];
+/* ===================================== */
+/* ARQUIVO CORRIGIDO: membros-detalhes.js */
+/* ===================================== */
 
-    // Dados de exemplo dos membros
-    const mockMembersData = [
-        { nome: 'Will', cargo: 'Liderança', dataEntrada: '2024-01-15', status: 'Ativo' },
-        { nome: 'Membro A', cargo: 'Gerente', dataEntrada: '2024-03-22', status: 'Ativo' },
-        { nome: 'Membro B', cargo: 'Vendedor', dataEntrada: '2024-05-10', status: 'Ativo' },
-        { nome: 'Membro C', cargo: 'Recruta', dataEntrada: '2025-09-01', status: 'Em Teste' },
-        { nome: 'Membro D', cargo: 'Vendedor', dataEntrada: '2024-07-30', status: 'Ativo' },
-        { nome: 'Ex-Membro E', cargo: 'Vendedor', dataEntrada: '2024-02-11', status: 'Inativo' },
-    ];
+const API_URL_MEMBROS = '/api'; // Caminho do proxy no seu server.js. Está CORRETO.
 
-    function renderTable(members) {
-        const tbody = document.getElementById('membros-table')?.querySelector('tbody');
-        if (!tbody) return;
+let allMembersData = []; // Armazena todos os membros para a busca funcionar.
 
-        tbody.innerHTML = '';
-        if (members.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Nenhum membro encontrado.</td></tr>';
-            return;
+function showMemberMessage(message, isError = false) {
+    const tbody = document.getElementById('membros-table')?.querySelector('tbody');
+    if (tbody) {
+        const colCount = tbody.parentElement.querySelector('thead tr').childElementCount;
+        tbody.innerHTML = `<tr><td colspan="${colCount}" style="text-align:center; color: ${isError ? 'var(--status-red)' : 'inherit'};">${message}</td></tr>`;
+    }
+}
+
+function renderMembersTable(members) {
+    const tbody = document.getElementById('membros-table')?.querySelector('tbody');
+    if (!tbody) return;
+
+    tbody.innerHTML = '';
+    if (members.length === 0) {
+        showMemberMessage("Nenhum membro corresponde à sua busca.");
+        return;
+    }
+
+    // A API já envia os dados ordenados por 'farm_entregue', então não precisamos ordenar aqui.
+    members.forEach(member => {
+        const status = 'Ativo';
+        const statusClass = 'status-aprovado';
+        const dataEntrada = member.data_entrada ? member.data_entrada.split(' ')[0] : 'N/A';
+
+        tbody.innerHTML += `
+            <tr>
+                <td><b>${member.nome || 'N/A'}</b></td>
+                <td>${member.cargo || 'N/A'}</td>
+                <td>${dataEntrada}</td>
+                <td><span class="status-tag ${statusClass}">${status}</span></td>
+                <td class="text-right">
+                    <button class="action-buttons" title="Editar Membro"><i class="fa-solid fa-pencil"></i></button>
+                    <button class="action-buttons" title="Ver Perfil"><i class="fa-solid fa-user"></i></button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+async function fetchAndDisplayMembers() {
+    try {
+        showMemberMessage("Carregando lista de membros...");
+
+        const response = await fetch(`${API_URL_MEMBROS}?action=getRanking`);
+
+        if (!response.ok) {
+            throw new Error(`Erro de rede: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        if (data.error) {
+            throw new Error(`Erro da API: ${data.error}`);
         }
 
-        members.forEach(member => {
-            let statusClass = '';
-            switch (member.status) {
-                case 'Ativo':
-                    statusClass = 'status-aprovado';
-                    break;
-                case 'Inativo':
-                    statusClass = 'status-recusado';
-                    break;
-                case 'Em Teste':
-                    statusClass = 'status-pendente';
-                    break;
-            }
+        allMembersData = data; 
+        renderMembersTable(allMembersData);
 
-            tbody.innerHTML += `
-                <tr>
-                    <td><b>${member.nome}</b></td>
-                    <td>${member.cargo}</td>
-                    <td>${new Date(member.dataEntrada).toLocaleDateString('pt-BR')}</td>
-                    <td><span class="status-tag ${statusClass}">${member.status}</span></td>
-                    <td class="text-right">
-                        <button class="action-buttons" title="Editar Membro"><i class="fa-solid fa-pencil"></i></button>
-                        <button class="action-buttons" title="Ver Perfil"><i class="fa-solid fa-user"></i></button>
-                    </td>
-                </tr>
-            `;
+    } catch (error) {
+        console.error("FALHA AO BUSCAR DADOS DE MEMBROS:", error);
+        showMemberMessage(`Falha ao carregar a lista de membros. Erro: ${error.message}`, true);
+    }
+}
+
+function setupSearch() {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('keyup', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredMembers = allMembersData.filter(member =>
+                (member.nome || '').toLowerCase().includes(searchTerm) ||
+                (member.cargo || '').toLowerCase().includes(searchTerm)
+            );
+            renderMembersTable(filteredMembers);
         });
     }
+}
 
-    // Função de busca
-    document.getElementById('search-input')?.addEventListener('keyup', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-        const filteredMembers = allMembers.filter(member =>
-            member.nome.toLowerCase().includes(searchTerm) ||
-            member.cargo.toLowerCase().includes(searchTerm)
-        );
-        renderTable(filteredMembers);
-    });
+function initMembersPage() {
+    fetchAndDisplayMembers();
+    setupSearch();
+}
 
-    // Função de inicialização
-    function init() {
-        allMembers = mockMembersData;
-        renderTable(allMembers);
-    }
-
-    init();
-});
+initMembersPage();

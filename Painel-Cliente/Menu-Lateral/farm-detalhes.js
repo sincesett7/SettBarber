@@ -1,59 +1,62 @@
-// farm-detalhes.js (VERSÃO FINAL COM POST E BOTÃO ATUALIZAR)
+/* =================================== */
+/* ARQUIVO CORRIGIDO: farm-detalhes.js */
+/* =================================== */
 
-const API_URL_FARM = '/api/'; // Use sua URL mais recente aqui
+const API_URL_FARM = '/api'; // Caminho do proxy no seu server.js. Está CORRETO.
+
+const formatNumber = (value) => {
+    const num = Number(value) || 0;
+    return new Intl.NumberFormat('pt-BR').format(num);
+};
 
 function showFarmMessage(message, isError = false) {
     const tbody = document.getElementById('farm-table')?.querySelector('tbody');
     if (tbody) {
-        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color: ${isError ? 'var(--status-red)' : 'inherit'};">${message}</td></tr>`;
+        const colCount = tbody.parentElement.querySelector('thead tr').childElementCount;
+        tbody.innerHTML = `<tr><td colspan="${colCount}" style="text-align:center; color: ${isError ? 'var(--status-red)' : 'inherit'};">${message}</td></tr>`;
     }
 }
 
-async function fetchFarmData() {
+async function fetchAndDisplayFarmData() {
     try {
         showFarmMessage("Carregando dados da planilha...");
-        
-        const response = await fetch(API_URL_FARM, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({ action: 'getFarm' }) 
-        });
+        const response = await fetch(`${API_URL_FARM}?action=getFarm`);
         
         if (!response.ok) throw new Error(`Erro de rede: ${response.statusText}`);
         
         const data = await response.json();
         if (data.error) throw new Error(`Erro da API: ${data.error}`);
-        if (!data.totals || !data.logs) throw new Error("Dados da API em formato inesperado.");
+        if (!data.grandTotals || !data.logs || !data.totals) throw new Error("Dados da API em formato inesperado.");
         
         updateFarmUI(data);
 
     } catch (error) {
         console.error("FALHA AO BUSCAR DADOS DE FARM:", error);
-        showFarmMessage(`Falha ao carregar dados. Verifique o console (F12).`, true);
+        showFarmMessage(`Falha ao carregar dados. Erro: ${error.message}`, true);
+        document.getElementById('total-seringas').textContent = '0';
+        document.getElementById('total-pasta-base').textContent = '0';
+        document.getElementById('total-cloridrato').textContent = '0';
     }
 }
 
-function populateKpiCardsFarm(memberTotals) {
-    const totalSeringas = memberTotals.reduce((sum, member) => sum + (member.totalSeringas || 0), 0);
-    const totalPastaBase = memberTotals.reduce((sum, member) => sum + (member.totalPastaBase || 0), 0);
-    const totalCloridrato = memberTotals.reduce((sum, member) => sum + (member.totalCloridrato || 0), 0);
+function updateFarmUI(data) {
+    // *** OTIMIZAÇÃO: Usa os totais gerais que a API já calculou ***
+    populateKpiCardsFarm(data.grandTotals);
+    renderFarmTable(data.logs);
+    renderTopFarmers(data.totals);
+}
 
-    document.getElementById('total-seringas').textContent = totalSeringas.toLocaleString('pt-BR');
-    document.getElementById('total-pasta-base').textContent = totalPastaBase.toLocaleString('pt-BR');
-    document.getElementById('total-cloridrato').textContent = totalCloridrato.toLocaleString('pt-BR');
-
-    const totalFarm = totalSeringas + totalPastaBase + totalCloridrato;
-    const farmPreview = document.getElementById('farm-data-preview');
-    if (farmPreview) {
-        farmPreview.textContent = totalFarm > 1000 ? `${(totalFarm / 1000).toFixed(1)}k` : totalFarm;
-    }
+function populateKpiCardsFarm(grandTotals) {
+    document.getElementById('total-seringas').textContent = formatNumber(grandTotals['Seringa']);
+    document.getElementById('total-pasta-base').textContent = formatNumber(grandTotals['Pasta Base']);
+    document.getElementById('total-cloridrato').textContent = formatNumber(grandTotals['Cloridrato']);
 }
 
 function renderFarmTable(logs) {
     const tbody = document.getElementById('farm-table')?.querySelector('tbody');
     if (!tbody) return;
     tbody.innerHTML = '';
-    const recentLogs = logs.slice(0, 3);
+    const recentLogs = logs.slice(0, 10); // Mostra as 10 mais recentes
     if (recentLogs.length === 0) {
          showFarmMessage("Nenhuma entrega registrada recentemente.");
          return;
@@ -61,10 +64,10 @@ function renderFarmTable(logs) {
     recentLogs.forEach(log => {
         tbody.innerHTML += `
             <tr>
-                <td>${log.data}</td>
-                <td>${log.membro}</td>
-                <td>${log.tipo}</td>
-                <td class="text-right"><b>${(log.quantidade || 0).toLocaleString('pt-BR')}</b></td>
+                <td>${log.data || 'N/A'}</td>
+                <td>${log.membro || 'N/A'}</td>
+                <td>${log.tipo || 'N/A'}</td>
+                <td class="text-right"><b>${formatNumber(log.quantidade)}</b></td>
             </tr>
         `;
     });
@@ -79,8 +82,12 @@ function renderTopFarmers(memberTotals) {
     const sortedFarmers = memberTotals.sort((a, b) => b.totalFarm - a.totalFarm);
     rankingList.innerHTML = '';
     const topFarmers = sortedFarmers.slice(0, 3);
+    if (topFarmers.length === 0) {
+        rankingList.innerHTML = '<p style="text-align: center;">Não há dados para exibir o ranking.</p>';
+        return;
+    }
     topFarmers.forEach((member, index) => {
-        if(member.totalFarm > 0){
+        if (member.totalFarm > 0) {
             const position = index + 1;
             const rankClass = `rank-${position}`;
             rankingList.innerHTML += `
@@ -89,20 +96,12 @@ function renderTopFarmers(memberTotals) {
                         <span class="ranking-position">${position}</span>
                         <span>${member.nome}</span>
                     </div>
-                    <span class="item-value positive">${member.totalFarm.toLocaleString('pt-BR')} un</span>
+                    <span class="item-value positive">${formatNumber(member.totalFarm)} un</span>
                 </div>
             `;
         }
     });
 }
 
-function updateFarmUI(data) {
-    populateKpiCardsFarm(data.totals);
-    renderFarmTable(data.logs);
-    renderTopFarmers(data.totals);
-}
-
-// FUNCIONALIDADE DO BOTÃO ADICIONADA AQUI
-document.getElementById('refresh-button-farm')?.addEventListener('click', fetchFarmData);
-
-fetchFarmData();
+document.getElementById('refresh-button-farm')?.addEventListener('click', fetchAndDisplayFarmData);
+fetchAndDisplayFarmData();

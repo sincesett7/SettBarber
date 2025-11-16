@@ -1,0 +1,128 @@
+/* --- (EQUIPE.HTML) CABEÇALHO DA PÁGINA --- */
+/* Reutilizando estilos de clientes.css, então precisamos copiar */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    font-size: 1.75rem;
+}
+
+.btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--primary-blue);
+    color: var(--bg-white);
+}
+.btn-primary:hover { opacity: 0.9; }
+.btn-primary i { font-size: 1.1rem; }
+
+/* --- (EQUIPE.HTML) GRADE DA EQUIPE --- */
+.team-grid {
+    display: grid;
+    /* Cria colunas responsivas:
+       - Tenta encaixar o máximo de colunas de 320px
+       - O que sobrar, distribui igualmente (1fr)
+    */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.team-card {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.team-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.team-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.team-role {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* --- Estatísticas do Card --- */
+.team-stats {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.stat-item {
+    flex: 1;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 4px;
+}
+
+.stat-item:nth-child(2) .stat-value {
+    color: var(--primary-green);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+/* --- Botão Secundário --- */
+.btn-secondary {
+    width: 100%;
+    padding: 12px;
+    margin-top: auto; /* Empurra o botão para o final do card */
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--border-color);
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Equipe</title>
+    
+    <!-- CSS Base (Layout e Sidebar) -->
+    <link rel="stylesheet" href="base.css">
+    <!-- CSS Específico da Página -->
+    <link rel="stylesheet" href="equipe.css">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <!-- BARRA LATERAL -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>BARBER FLOW</h2>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="painel.html"> 
+                        <i class="ph ph-calendar"></i>
+                        <span>Agendamentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="ph ph-chart-line-up"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html">
+                        <i class="ph ph-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="equipe.html" class="active"> <!-- ESTA PÁGINA -->
+                        <i class="ph ph-scissors"></i>
+                        <span>Equipe</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="ph ph-gear"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="user-profile">
+                    <span>Barbearia do Itoy</span>
+                    <i class="ph ph-user-circle"></i>
+                </div>
+            </header>
+
+            <!-- CABEÇALHO DA PÁGINA (TÍTULO E BOTÃO) -->
+            <div class="page-header">
+                <h1>Gestão de Equipe</h1>
+                <button class="btn-primary">
+                    <i class="ph ph-user-plus"></i>
+                    Adicionar Membro
+                </button>
+            </div>
+
+            <!-- GRADE DA EQUIPE -->
+            <section class="team-grid">
+                
+                <!-- Card 1: Barbeiro Sênior -->
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <img src="https://placehold.co/100x100/3498db/ffffff?text=Itoy" alt="Foto do Barbeiro" class="team-photo">
+                        <div class="team-info">
+                            <span class="team-name">Itoy Silva</span>
+                            <span class="team-role">Barbeiro Sênior / Dono</span>
+                        </div>
+                    </div>
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">120</span>
+                            <span class="stat-label">Cortes (Mês)</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">R$ 6.000</span>
+                            <span class="stat-label">Receita (Mês)</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">4.9/5</span>
+                            <span class="stat-label">Avaliação</span>
+                        </div>
+                    </div>
+                    <button class="btn-secondary">Ver Detalhes</button>
+                </div>
+
+                <!-- Card 2: Barbeiro Pleno -->
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <img src="https://placehold.co/100x100/2ecc71/ffffff?text=Joao" alt="Foto do Barbeiro" class="team-photo">
+                        <div class="team-info">
+                            <span class="team-name">João Pereira</span>
+                            <span class="team-role">Barbeiro Pleno</span>
+                        </div>
+                    </div>
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">95</span>
+                            <span class="stat-label">Cortes (Mês)</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">R$ 4.750</span>
+                            <span class="stat-label">Receita (Mês)</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">4.8/5</span>
+                            <span class="stat-label">Avaliação</span>
+                        </div>
+                    </div>
+                    <button class="btn-secondary">Ver Detalhes</button>
+                </div>
+
+                <!-- Card 3: Recepcionista -->
+                <div class="team-card">
+                    <div class="team-card-header">
+                        <img src="https://placehold.co/100x100/9b59b6/ffffff?text=Ana" alt="Foto da Recepcionista" class="team-photo">
+                        <div class="team-info">
+                            <span class="team-name">Ana Costa</span>
+                            <span class="team-role">Recepcionista</span>
+                        </div>
+                    </div>
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">250</span>
+                            <span class="stat-label">Check-ins (Mês)</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">98%</span>
+                            <span class="stat-label">Ocupação</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">5.0/5</span>
+                            <span class="stat-label">Avaliação</span>
+                        </div>
+                    </div>
+                    <button class="btn-secondary">Ver Detalhes</button>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>

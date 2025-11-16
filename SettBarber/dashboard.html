@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Análises</title>
+    
+    <!-- CSS Base (Layout e Sidebar) -->
+    <link rel="stylesheet" href="base.css">
+    <!-- CSS Específico da Página -->
+    <link rel="stylesheet" href="dashboard.css">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <!-- BARRA LATERAL -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>BARBER FLOW</h2>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="painel.html"> <!-- Link atualizado -->
+                        <i class="ph ph-calendar"></i>
+                        <span>Agendamentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboard.html" class="active"> <!-- Link atualizado -->
+                        <i class="ph ph-chart-line-up"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html">
+                        <i class="ph ph-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="equipe.html">
+                        <i class="ph ph-scissors"></i>
+                        <span>Equipe</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="ph ph-gear"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL DO DASHBOARD -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="user-profile">
+                    <span>Barbearia do Itoy</span>
+                    <i class="ph ph-user-circle"></i>
+                </div>
+            </header>
+
+            <!-- TÍTULO E FILTROS -->
+            <div class="dashboard-header">
+                <h1>Dashboard de Análises</h1>
+                <div class="dashboard-filters">
+                    <button class="filter-btn active">Últimos 30 dias</button>
+                    <button class="filter-btn">Este Mês</button>
+                    <button class="filter-btn">Este Ano</button>
+                </div>
+            </div>
+
+            <!-- 1. GRADE DE KPIs (INDICADORES-CHAVE) -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <i class="ph ph-wallet icon-green"></i>
+                    <div class="kpi-info">
+                        <h3>R$ 7.850,00</h3>
+                        <p>Receita no Período</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <i class="ph ph-users icon-blue"></i>
+                    <div class="kpi-info">
+                        <h3>157</h3>
+                        <p>Total de Clientes Atendidos</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <i class="ph ph-user-plus icon-blue"></i>
+                    <div class="kpi-info">
+                        <h3>32</h3>
+                        <p>Novos Clientes</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <i class="ph ph-chart-line-up icon-green"></i>
+                    <div class="kpi-info">
+                        <h3>R$ 50,00</h3>
+                        <p>Ticket Médio</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. GRADE DE GRÁFICOS PRINCIPAIS -->
+            <section class="charts-grid">
+                <div class="chart-container">
+                    <h3>Evolução da Receita</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="graficoReceita"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Serviços Mais Populares</h3>
+                    <div class="chart-wrapper-small">
+                        <canvas id="graficoServicos"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. GRADE DE GRÁFICOS SECUNDÁRIOS -->
+            <section class="bottom-grid">
+                <div class="chart-container">
+                    <h3>Horários de Pico</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="graficoHorarios"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Top Clientes (por receita)</h3>
+                    <ul class="top-clients-list">
+                        <li>
+                            <span>1. Ricardo Silva</span>
+                            <strong>R$ 450,00</strong>
+                        </li>
+                        <li>
+                            <span>2. Marcos Alves</span>
+                            <strong>R$ 380,00</strong>
+                        </li>
+                        <li>
+                            <span>3. Felipe Nunes</span>
+                            <strong>R$ 320,00</strong>
+                        </li>
+                        <li>
+                            <span>4. Bruno Costa</span>
+                            <strong>R$ 290,00</strong>
+                        </li>
+                        <li>
+                            <span>5. Lucas Martins</span>
+                            <strong>R$ 250,00</strong>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Scripts (Chart.js e o nosso script) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard-charts.js"></script>
+</body>
+</html>

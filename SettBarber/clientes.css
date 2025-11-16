@@ -1,0 +1,157 @@
+/* --- (CLIENTES.HTML) CABEÇALHO DA PÁGINA --- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    font-size: 1.75rem;
+}
+
+/* Botão Primário (Azul) */
+.btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--primary-blue);
+    color: var(--bg-white);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-primary i {
+    font-size: 1.1rem;
+}
+
+/* --- (CLIENTES.HTML) BARRA DE BUSCA E FILTROS --- */
+.search-bar-container {
+    display: flex;
+    gap: 16px;
+    background-color: var(--bg-white);
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+}
+
+.search-input-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--bg-light);
+    padding: 0 16px;
+    border-radius: 8px;
+}
+
+.search-input-wrapper i {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.search-input-wrapper input {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.filter-select {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-white);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* --- (CLIENTES.HTML) TABELA DE CLIENTES --- */
+.client-table-container {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow-x: auto; /* Para responsividade em telas pequenas */
+}
+
+.client-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.client-table th,
+.client-table td {
+    padding: 18px 24px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap; /* Impede que o texto quebre */
+}
+
+.client-table th {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+}
+
+.client-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.client-table tbody tr:hover {
+    background-color: var(--bg-light);
+}
+
+.client-info-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.client-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.client-contact {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.total-spent {
+    font-weight: 600;
+    color: var(--primary-green);
+}
+
+.actions-cell {
+    text-align: right;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    padding: 4px;
+    margin-left: 8px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.action-btn:hover {
+    color: var(--primary-blue);
+}

@@ -1,0 +1,153 @@
+/* --- (PAINEL.HTML) AREA DE CONTEÚDO --- */
+.content-area {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Agendamentos (2/3) e Insights (1/3) */
+    gap: 24px;
+}
+
+/* --- (PAINEL.HTML) SEÇÃO DE AGENDAMENTOS --- */
+.appointments-today {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.appointments-today h2 {
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+}
+
+.appointments-today ul {
+    list-style: none;
+}
+
+.appointments-today li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.appointments-today li:last-child {
+    border-bottom: none;
+}
+
+.appointments-today .time {
+    font-weight: 600;
+    width: 80px;
+}
+
+.appointments-today .client-info {
+    flex: 1;
+    margin-left: 16px;
+}
+
+.appointments-today .client-info strong {
+    display: block;
+    font-size: 1rem;
+}
+
+.appointments-today .client-info span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.appointments-today .status {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.appointments-today .status.upcoming {
+    color: var(--primary-blue);
+    background-color: #eaf5fc;
+}
+
+.appointments-today .status.completed {
+    color: var(--text-light);
+    background-color: var(--bg-light);
+}
+
+/* --- (PAINEL.HTML) PAINEL DE INSIGHTS --- */
+.insights-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.insights-panel h2 {
+    font-size: 1.25rem;
+}
+
+.insight-card {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.insight-card i {
+    font-size: 32px;
+    padding: 12px;
+    border-radius: 50%;
+}
+
+.insight-card .card-info h3 {
+    font-size: 1.75rem;
+    margin-bottom: 4px;
+}
+
+.insight-card .card-info p {
+    color: var(--text-light);
+}
+
+/* --- (PAINEL.HTML) BOTÕES DE AÇÃO RÁPIDA --- */
+.quick-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px; /* Espaço entre os botões e os cards */
+}
+
+.quick-actions .btn {
+    flex: 1; /* Faz os botões dividirem o espaço */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-actions .btn i {
+    font-size: 1.1rem;
+}
+
+.quick-actions .btn-add {
+    background-color: var(--primary-green);
+    color: var(--bg-white);
+}
+
+.quick-actions .btn-add:hover {
+    opacity: 0.9;
+}
+
+.quick-actions .btn-remove {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+}
+
+.quick-actions .btn-remove:hover {
+    background-color: var(--border-color);
+}

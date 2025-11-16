@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel - Agendamentos</title>
+    
+    <!-- CSS Base (Layout e Sidebar) -->
+    <link rel="stylesheet" href="base.css">
+    <!-- CSS Específico da Página -->
+    <link rel="stylesheet" href="painel.css">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <!-- BARRA LATERAL -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>BARBER FLOW</h2>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="painel.html" class="active"> <!-- Link atualizado -->
+                        <i class="ph ph-calendar"></i>
+                        <span>Agendamentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboard.html"> <!-- Link atualizado -->
+                        <i class="ph ph-chart-line-up"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html">
+                        <i class="ph ph-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="equipe.html">
+                        <i class="ph ph-scissors"></i>
+                        <span>Equipe</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="ph ph-gear"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="user-profile">
+                    <span>Barbearia do Itoy</span>
+                    <i class="ph ph-user-circle"></i>
+                </div>
+            </header>
+
+            <div class="content-area">
+                
+                <!-- SEÇÃO DE AGENDAMENTOS -->
+                <section class="appointments-today">
+                    <h2>Próximos Agendamentos do Dia</h2>
+                    <ul>
+                        <li>
+                            <div class="time">09:00</div>
+                            <div class="client-info">
+                                <strong>Ricardo Silva</strong>
+                                <span>Corte + Barba</span>
+                            </div>
+                            <div class="status upcoming">Pendente</div>
+                        </li>
+                        <li>
+                            <div class="time">10:00</div>
+                            <div class="client-info">
+                                <strong>Marcos Alves</strong>
+                                <span>Corte</span>
+                            </div>
+                            <div class="status upcoming">Pendente</div>
+                        </li>
+                        <li>
+                            <div class="time">11:00</div>
+                            <div class="client-info">
+                                <strong>Bruno Costa</strong>
+                                <span>Barba</span>
+                            </div>
+                            <div class="status completed">Concluído</div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- PAINEL DE INSIGHTS -->
+                <aside class="insights-panel">
+                    <h2>Insights do Dia</h2>
+
+                    <div class="quick-actions">
+                        <button class="btn btn-add">
+                            <i class="ph ph-plus"></i>
+                            Adicionar Manual
+                        </button>
+                        <button class="btn btn-remove">
+                            <i class="ph ph-minus"></i>
+                            Remover
+                        </button>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <i class="ph ph-calendar-check icon-blue"></i>
+                        <div class="card-info">
+                            <h3>5</h3> 
+                            <p>Cortes Programados</p>
+                        </div>
+                    </div>
+
+                    <div class="insight-card">
+                        <i class="ph ph-scissors icon-green"></i>
+                        <div class="card-info">
+                            <h3>1</h3> 
+                            <p>Cortes Realizados</p>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Clientes</title>
+    
+    <!-- CSS Base (Layout e Sidebar) -->
+    <link rel="stylesheet" href="base.css">
+    <!-- CSS Específico da Página -->
+    <link rel="stylesheet" href="clientes.css">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <!-- BARRA LATERAL -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>BARBER FLOW</h2>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="painel.html"> 
+                        <i class="ph ph-calendar"></i>
+                        <span>Agendamentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="ph ph-chart-line-up"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html" class="active"> <!-- ESTA PÁGINA -->
+                        <i class="ph ph-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="equipe.html">
+                        <i class="ph ph-scissors"></i>
+                        <span>Equipe</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="ph ph-gear"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="user-profile">
+                    <span>Barbearia do Itoy</span>
+                    <i class="ph ph-user-circle"></i>
+                </div>
+            </header>
+
+            <!-- CABEÇALHO DA PÁGINA (TÍTULO E BOTÃO) -->
+            <div class="page-header">
+                <h1>Gestão de Clientes</h1>
+                <button class="btn-primary">
+                    <i class="ph ph-user-plus"></i>
+                    Adicionar Novo Cliente
+                </button>
+            </div>
+
+            <!-- BARRA DE BUSCA E FILTROS -->
+            <div class="search-bar-container">
+                <div class="search-input-wrapper">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Buscar por nome ou telefone...">
+                </div>
+                <select class="filter-select">
+                    <option value="recentes">Mais Recentes</option>
+                    <option value="fieis">Mais Fiéis (Visitas)</option>
+                    <option value="valor">Maior Valor (Gasto)</option>
+                </select>
+            </div>
+
+            <!-- TABELA DE CLIENTES -->
+            <section class="client-table-container">
+                <table class="client-table">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Última Visita</th>
+                            <th>Total de Visitas</th>
+                            <th>Serviço Preferido</th>
+                            <th>Gasto Total</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Cliente 1 -->
+                        <tr>
+                            <td class="client-info-cell">
+                                <span class="client-name">Ricardo Silva</span>
+                                <span class="client-contact">(11) 98765-4321</span>
+                            </td>
+                            <td>12/11/2025</td>
+                            <td>15</td>
+                            <td>Corte + Barba</td>
+                            <td class="total-spent">R$ 750,00</td>
+                            <td class="actions-cell">
+                                <button class="action-btn"><i class="ph ph-eye"></i></button>
+                                <button class="action-btn"><i class="ph ph-pencil"></i></button>
+                            </td>
+                        </tr>
+                        <!-- Cliente 2 -->
+                        <tr>
+                            <td class="client-info-cell">
+                                <span class="client-name">Marcos Alves</span>
+                                <span class="client-contact">(21) 91234-5678</span>
+                            </td>
+                            <td>05/11/2025</td>
+                            <td>8</td>
+                            <td>Corte</td>
+                            <td class="total-spent">R$ 400,00</td>
+                            <td class="actions-cell">
+                                <button class="action-btn"><i class="ph ph-eye"></i></button>
+                                <button class="action-btn"><i class="ph ph-pencil"></i></button>
+                            </td>
+                        </tr>
+                        <!-- Cliente 3 (Exemplo de cliente mais antigo) -->
+                        <tr>
+                            <td class="client-info-cell">
+                                <span class="client-name">Bruno Costa</span>
+                                <span class="client-contact">(31) 95555-1212</span>
+                            </td>
+                            <td>20/08/2025</td>
+                            <td>12</td>
+                            <td>Barba</td>
+                            <td class="total-spent">R$ 480,00</td>
+                            <td class="actions-cell">
+                                <button class="action-btn"><i class="ph ph-eye"></i></button>
+                                <button class="action-btn"><i class="ph ph-pencil"></i></button>
+                            </td>
+                        </tr>
+                         <!-- Cliente 4 -->
+                         <tr>
+                            <td class="client-info-cell">
+                                <span class="client-name">Felipe Nunes</span>
+                                <span class="client-contact">(48) 99911-2233</span>
+                            </td>
+                            <td>10/11/2025</td>
+                            <td>22</td>
+                            <td>Corte</td>
+                            <td class="total-spent">R$ 1.100,00</td>
+                            <td class="actions-cell">
+                                <button class="action-btn"><i class="ph ph-eye"></i></button>
+                                <button class="action-btn"><i class="ph ph-pencil"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>

@@ -1,11 +1,14 @@
 // Aguarda o DOM carregar para executar os scripts
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Cores SettLabs
-    const corPrimaria = '#e53e3e';
-    const corSecundaria = '#2d2d2d';
-    const corTerciaria = '#999';
-    const corPrimariaTransparente = 'rgba(229, 62, 62, 0.1)';
+    // Cores SettLabs (ATUALIZADAS)
+    const corPrimaria = '#F28C28'; // Laranja
+    const corPrimariaTransparente = 'rgba(242, 140, 40, 0.1)';
+    
+    // Cores de Dados Profissionais
+    const corVerdeDados = '#28a745';
+    const corAzulDados = '#007BFF';
+    const corSecundaria = '#2d2d2d'; // Preto (para o gráfico de rosca)
 
     // --- GRÁFICO 1: EVOLUÇÃO DA RECEITA (GRÁFICO DE LINHA) ---
     const ctxReceita = document.getElementById('graficoReceita');
@@ -17,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 datasets: [{
                     label: 'Receita',
                     data: [120, 300, 450, 400, 600, 750, 850], // Dados de exemplo
-                    borderColor: corPrimaria, // Cor atualizada
-                    backgroundColor: corPrimariaTransparente, // Cor atualizada
+                    borderColor: corPrimaria, // <- MUDOU (LARANJA)
+                    backgroundColor: corPrimariaTransparente, // <- MUDOU (LARANJA)
                     fill: true,
                     tension: 0.3
                 }]
@@ -46,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     label: 'Nº de Serviços',
                     data: [85, 42, 30], // Dados de exemplo
                     backgroundColor: [
-                        corPrimaria,     // Cor atualizada
-                        corSecundaria,   // Cor atualizada
-                        corTerciaria     // Cor atualizada
+                        corPrimaria,     // Laranja
+                        corAzulDados,    // Azul
+                        corSecundaria    // Preto
                     ],
                     hoverOffset: 4
                 }]
@@ -70,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 datasets: [{
                     label: 'Nº de Agendamentos',
                     data: [5, 8, 10, 4, 6, 12, 15, 18, 22, 14], // Dados de exemplo
-                    backgroundColor: corPrimaria, // Cor atualizada
+                    backgroundColor: corVerdeDados, // <- MUDOU (VERDE)
                     borderRadius: 4
                 }]
             },

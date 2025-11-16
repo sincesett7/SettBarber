@@ -1,20 +1,24 @@
 /* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
 :root {
-    /* PALETA SETTLABS */
-    --primary-red: #e53e3e; /* Vermelho SettLabs */
-    --sidebar-bg: #1a1a1a;  /* Fundo escuro da Sidebar */
-    --content-bg: #f4f7f6;  /* Fundo principal (cinza claro) */
+    /* PALETA SETTLABS (ATUALIZADA) */
+    --primary-orange: #ff752d; /* Laranja Forte (Substituindo o vermelho) */
+    --sidebar-bg: #222222;     /* Fundo escuro da Sidebar (Ajustado) */
+    --content-bg: #f4f7f6;     /* Fundo principal (cinza claro) */
     --bg-white: #ffffff;
     
+    /* NOVAS CORES PROFISSIONAIS PARA DADOS */
+    --data-positive: #28a745; /* Verde profissional */
+    --data-neutral: #007BFF;  /* Azul profissional */
+
     --sidebar-text: #ecf0f1;
     --text-dark: #222;
     --text-light: #777;
     --border-color: #eaeaea;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
-    /* Cores de ícone (substituindo azul e verde) */
-    --icon-primary-bg: rgba(229, 62, 62, 0.1);
-    --icon-secondary-bg: #f0f0f0;
+    /* Cores de ícone (ATUALIZADAS para dados) */
+    --icon-positive-bg: rgba(40, 167, 69, 0.1);  /* Fundo Verde */
+    --icon-neutral-bg: rgba(0, 123, 255, 0.1); /* Fundo Azul */
 }
 
 * {
@@ -49,7 +53,7 @@ body {
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 32px;
-    color: var(--primary-red); /* Cor do título */
+    color: var(--primary-orange); /* <- MUDOU (LARANJA) */
     text-align: center;
 }
 
@@ -78,11 +82,11 @@ body {
 
 .nav-links a:hover {
     background-color: rgba(255, 255, 255, 0.05);
-    color: var(--primary-red);
+    color: var(--primary-orange); /* <- MUDOU (LARANJA) */
 }
 
 .nav-links a.active {
-    background-color: var(--primary-red);
+    background-color: var(--primary-orange); /* <- MUDOU (LARANJA) */
     color: var(--bg-white);
     font-weight: 600;
 }
@@ -132,13 +136,15 @@ body {
     color: var(--text-light);
 }
 
-/* --- CLASSES DE ÍCONE COMPARTILHADAS (ATUALIZADAS) --- */
+/* --- CLASSES DE ÍCONE COMPARTILHADAS (REDEFINIDAS) --- */
+/* O HTML usa 'icon-red' para dados financeiros/positivos */
 .icon-red {
-    color: var(--primary-red);
-    background-color: var(--icon-primary-bg);
+    color: var(--data-positive); /* <- MUDOU (VERDE) */
+    background-color: var(--icon-positive-bg); /* <- MUDOU (FUNDO VERDE) */
 }
 
+/* O HTML usa 'icon-grey' para dados neutros/contagens */
 .icon-grey {
-    color: var(--text-dark);
-    background-color: var(--icon-secondary-bg);
+    color: var(--data-neutral); /* <- MUDOU (AZUL) */
+    background-color: var(--icon-neutral-bg); /* <- MUDOU (FUNDO AZUL) */
 }

@@ -10,7 +10,7 @@
     font-size: 1.75rem;
 }
 
-/* Botão Primário (Vermelho) */
+/* Botão Primário (Laranja) */
 .btn-primary {
     display: flex;
     align-items: center;
@@ -22,7 +22,7 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: var(--primary-red);
+    background-color: var(--primary-orange); /* <- MUDOU (LARANJA) */
     color: var(--bg-white);
 }
 
@@ -134,7 +134,7 @@
 
 .total-spent {
     font-weight: 600;
-    color: var(--primary-red); /* Alterado de verde para vermelho */
+    color: var(--data-positive); /* <- MUDOU (VERDE) */
 }
 
 .actions-cell {
@@ -153,5 +153,5 @@
 }
 
 .action-btn:hover {
-    color: var(--primary-red);
+    color: var(--primary-orange); /* <- MUDOU (LARANJA) */
 }

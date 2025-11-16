@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Serviços</title>
+    
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="servicos.css"> <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>SettBarber</h2>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="painel.html"> 
+                        <i class="ph ph-calendar"></i>
+                        <span>Agendamentos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="ph ph-chart-line-up"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html">
+                        <i class="ph ph-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="equipe.html">
+                        <i class="ph ph-scissors"></i>
+                        <span>Equipe</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="servicos.html" class="active">
+                        <i class="ph ph-tag"></i>
+                        <span>Serviços</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="ph ph-gear"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <p>Desenvolvido por</p>
+                <strong>SettLabs by Victor</strong>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="user-profile">
+                    <span>Barbearia do Itoy</span>
+                    <i class="ph ph-user-circle"></i>
+                </div>
+            </header>
+
+            <div class="page-header">
+                <h1>Gestão de Serviços</h1>
+                <button class="btn-primary">
+                    <i class="ph ph-plus"></i>
+                    Adicionar Novo Serviço
+                </button>
+            </div>
+
+            <section class="service-table-container">
+                <table class="service-table">
+                    <thead>
+                        <tr>
+                            <th>Serviço</th>
+                            <th>Duração (est.)</th>
+                            <th>Preço</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="service-name">Corte de Cabelo</td>
+                            <td>30 min</td>
+                            <td class="service-price">R$ 50,00</td>
+                            <td class="actions-cell">
+                                <button class="action-btn"><i class="ph ph-pencil"></i></button>
+                                <button class="action-btn"><i class="ph ph-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="service-name">Barba</td>
+                            <td>30 min</td>
+                            <td class="service-price">R$ 40,00</td>
+                            <td class="actions-cell">
+                                <button class="action-btn"><i class="ph ph-pencil"></i></button>
+                                <button class="action-btn"><i class="ph ph-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="service-name">Corte + Barba</td>
+                            <td>1h 00 min</td>
+                            <td class="service-price">R$ 80,00</td>
+                            <td class="actions-cell">
+                                <button class="action-btn"><i class="ph ph-pencil"></i></button>
+                                <button class="action-btn"><i class="ph ph-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>

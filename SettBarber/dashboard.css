@@ -27,9 +27,9 @@
 }
 
 .dashboard-filters .filter-btn.active {
-    background-color: var(--primary-red);
+    background-color: var(--primary-orange); /* <- MUDOU (LARANJA) */
     color: var(--bg-white);
-    border-color: var(--primary-red);
+    border-color: var(--primary-orange); /* <- MUDOU (LARANJA) */
 }
 
 /* --- (DASHBOARD.HTML) Grade de KPIs --- */
@@ -39,7 +39,10 @@
     gap: 24px;
     margin-bottom: 24px;
 }
-
+/* Os KPIs (kpi-card) usam .icon-red e .icon-grey.
+  Como já redefinimos isso no base.css, eles 
+  automaticamente se tornarão Verde e Azul.
+*/
 .kpi-card {
     display: flex;
     align-items: center;
@@ -129,5 +132,5 @@
 .top-clients-list strong {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--text-dark); /* Alterado de verde para escuro */
+    color: var(--data-positive); /* <- MUDOU (VERDE) */
 }

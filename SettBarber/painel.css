@@ -62,8 +62,8 @@
 }
 
 .appointments-today .status.upcoming {
-    color: var(--primary-red);
-    background-color: var(--icon-primary-bg);
+    color: var(--data-neutral); /* <- MUDOU (AZUL) */
+    background-color: var(--icon-neutral-bg); /* <- MUDOU (FUNDO AZUL) */
 }
 
 .appointments-today .status.completed {
@@ -81,7 +81,10 @@
 .insights-panel h2 {
     font-size: 1.25rem;
 }
-
+/* Os cards de insight (insight-card) usam .icon-red e .icon-grey.
+  Como já redefinimos isso no base.css, eles 
+  automaticamente se tornarão Verde e Azul.
+*/
 .insight-card {
     background-color: var(--bg-white);
     border-radius: 12px;
@@ -134,7 +137,7 @@
 }
 
 .quick-actions .btn-add {
-    background-color: var(--primary-red);
+    background-color: var(--primary-orange); /* <- MUDOU (LARANJA) */
     color: var(--bg-white);
 }
 

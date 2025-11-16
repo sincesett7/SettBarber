@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Clientes</title>
     
-    <!-- CSS Base (Layout e Sidebar) -->
     <link rel="stylesheet" href="base.css">
-    <!-- CSS Específico da Página -->
     <link rel="stylesheet" href="clientes.css">
     
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -16,10 +14,9 @@
 
     <div class="dashboard-container">
         
-        <!-- BARRA LATERAL -->
         <nav class="sidebar">
             <div class="sidebar-header">
-                <h2>BARBER FLOW</h2>
+                <h2>SettBarber</h2>
             </div>
             <ul class="nav-links">
                 <li>
@@ -35,8 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="clientes.html" class="active"> <!-- ESTA PÁGINA -->
-                        <i class="ph ph-users"></i>
+                    <a href="clientes.html" class="active"> <i class="ph ph-users"></i>
                         <span>Clientes</span>
                     </a>
                 </li>
@@ -53,9 +49,13 @@
                     </a>
                 </li>
             </ul>
+
+            <div class="sidebar-footer">
+                <p>Desenvolvido por</p>
+                <strong>SettLabs by Victor</strong>
+            </div>
         </nav>
 
-        <!-- CONTEÚDO PRINCIPAL -->
         <main class="main-content">
             <header class="main-header">
                 <div class="user-profile">
@@ -64,7 +64,6 @@
                 </div>
             </header>
 
-            <!-- CABEÇALHO DA PÁGINA (TÍTULO E BOTÃO) -->
             <div class="page-header">
                 <h1>Gestão de Clientes</h1>
                 <button class="btn-primary">
@@ -73,7 +72,6 @@
                 </button>
             </div>
 
-            <!-- BARRA DE BUSCA E FILTROS -->
             <div class="search-bar-container">
                 <div class="search-input-wrapper">
                     <i class="ph ph-magnifying-glass"></i>
@@ -86,7 +84,6 @@
                 </select>
             </div>
 
-            <!-- TABELA DE CLIENTES -->
             <section class="client-table-container">
                 <table class="client-table">
                     <thead>
@@ -100,7 +97,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Cliente 1 -->
                         <tr>
                             <td class="client-info-cell">
                                 <span class="client-name">Ricardo Silva</span>
@@ -115,7 +111,6 @@
                                 <button class="action-btn"><i class="ph ph-pencil"></i></button>
                             </td>
                         </tr>
-                        <!-- Cliente 2 -->
                         <tr>
                             <td class="client-info-cell">
                                 <span class="client-name">Marcos Alves</span>
@@ -130,7 +125,6 @@
                                 <button class="action-btn"><i class="ph ph-pencil"></i></button>
                             </td>
                         </tr>
-                        <!-- Cliente 3 (Exemplo de cliente mais antigo) -->
                         <tr>
                             <td class="client-info-cell">
                                 <span class="client-name">Bruno Costa</span>
@@ -145,7 +139,6 @@
                                 <button class="action-btn"><i class="ph ph-pencil"></i></button>
                             </td>
                         </tr>
-                         <!-- Cliente 4 -->
                          <tr>
                             <td class="client-info-cell">
                                 <span class="client-name">Felipe Nunes</span>

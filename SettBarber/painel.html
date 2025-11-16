@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel - Agendamentos</title>
     
-    <!-- CSS Base (Layout e Sidebar) -->
     <link rel="stylesheet" href="base.css">
-    <!-- CSS Específico da Página -->
     <link rel="stylesheet" href="painel.css">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -16,20 +14,19 @@
 
     <div class="dashboard-container">
         
-        <!-- BARRA LATERAL -->
         <nav class="sidebar">
             <div class="sidebar-header">
-                <h2>BARBER FLOW</h2>
+                <h2>SettBarber</h2>
             </div>
             <ul class="nav-links">
                 <li>
-                    <a href="painel.html" class="active"> <!-- Link atualizado -->
+                    <a href="painel.html" class="active">
                         <i class="ph ph-calendar"></i>
                         <span>Agendamentos</span>
                     </a>
                 </li>
                 <li>
-                    <a href="dashboard.html"> <!-- Link atualizado -->
+                    <a href="dashboard.html">
                         <i class="ph ph-chart-line-up"></i>
                         <span>Dashboard</span>
                     </a>
@@ -53,9 +50,13 @@
                     </a>
                 </li>
             </ul>
+
+            <div class="sidebar-footer">
+                <p>Desenvolvido por</p>
+                <strong>SettLabs by Victor</strong>
+            </div>
         </nav>
 
-        <!-- CONTEÚDO PRINCIPAL -->
         <main class="main-content">
             <header class="main-header">
                 <div class="user-profile">
@@ -66,7 +67,6 @@
 
             <div class="content-area">
                 
-                <!-- SEÇÃO DE AGENDAMENTOS -->
                 <section class="appointments-today">
                     <h2>Próximos Agendamentos do Dia</h2>
                     <ul>
@@ -97,7 +97,6 @@
                     </ul>
                 </section>
 
-                <!-- PAINEL DE INSIGHTS -->
                 <aside class="insights-panel">
                     <h2>Insights do Dia</h2>
 
@@ -113,16 +112,14 @@
                     </div>
                     
                     <div class="insight-card">
-                        <i class="ph ph-calendar-check icon-blue"></i>
-                        <div class="card-info">
+                        <i class="ph ph-calendar-check icon-red"></i> <div class="card-info">
                             <h3>5</h3> 
                             <p>Cortes Programados</p>
                         </div>
                     </div>
 
                     <div class="insight-card">
-                        <i class="ph ph-scissors icon-green"></i>
-                        <div class="card-info">
+                        <i class="ph ph-scissors icon-grey"></i> <div class="card-info">
                             <h3>1</h3> 
                             <p>Cortes Realizados</p>
                         </div>

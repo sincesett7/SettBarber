@@ -22,7 +22,7 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: var(--primary-blue);
+    background-color: var(--primary-red);
     color: var(--bg-white);
 }
 .btn-primary:hover { opacity: 0.9; }
@@ -95,12 +95,12 @@
     display: block;
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--primary-blue);
+    color: var(--primary-red); /* Cor primária */
     margin-bottom: 4px;
 }
 
 .stat-item:nth-child(2) .stat-value {
-    color: var(--primary-green);
+    color: var(--text-dark); /* Cor secundária (era verde) */
 }
 
 .stat-label {
@@ -118,7 +118,7 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: var(--bg-light);
+    background-color: var(--content-bg);
     color: var(--text-dark);
     border: 1px solid var(--border-color);
 }

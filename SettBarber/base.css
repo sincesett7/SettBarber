@@ -1,15 +1,20 @@
 /* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
 :root {
-    --bg-light: #f4f7f6;
+    /* PALETA SETTLABS */
+    --primary-red: #e53e3e; /* Vermelho SettLabs */
+    --sidebar-bg: #1a1a1a;  /* Fundo escuro da Sidebar */
+    --content-bg: #f4f7f6;  /* Fundo principal (cinza claro) */
     --bg-white: #ffffff;
-    --sidebar-bg: #2c3e50;
+    
     --sidebar-text: #ecf0f1;
-    --primary-blue: #3498db;
-    --primary-green: #2ecc71;
-    --text-dark: #333;
+    --text-dark: #222;
     --text-light: #777;
     --border-color: #eaeaea;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    /* Cores de ícone (substituindo azul e verde) */
+    --icon-primary-bg: rgba(229, 62, 62, 0.1);
+    --icon-secondary-bg: #f0f0f0;
 }
 
 * {
@@ -20,7 +25,7 @@
 }
 
 body {
-    background-color: var(--bg-light);
+    background-color: var(--content-bg);
     color: var(--text-dark);
 }
 
@@ -44,6 +49,8 @@ body {
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 32px;
+    color: var(--primary-red); /* Cor do título */
+    text-align: center;
 }
 
 .nav-links {
@@ -51,6 +58,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    flex-grow: 1; /* Faz a lista crescer */
 }
 
 .nav-links a {
@@ -61,7 +69,7 @@ body {
     text-decoration: none;
     color: var(--sidebar-text);
     border-radius: 8px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-links a i {
@@ -69,13 +77,35 @@ body {
 }
 
 .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--primary-red);
 }
 
 .nav-links a.active {
-    background-color: var(--primary-blue);
+    background-color: var(--primary-red);
+    color: var(--bg-white);
     font-weight: 600;
 }
+
+/* --- MARCA D'ÁGUA --- */
+.sidebar-footer {
+    margin-top: 32px; /* Espaço acima */
+    padding-top: 16px;
+    border-top: 1px solid #444; /* Linha divisória */
+    text-align: center;
+}
+
+.sidebar-footer p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.sidebar-footer strong {
+    font-size: 0.9rem;
+    color: var(--sidebar-text);
+}
+
 
 /* --- CONTEÚDO PRINCIPAL COMPARTILHADO --- */
 .main-content {
@@ -102,13 +132,13 @@ body {
     color: var(--text-light);
 }
 
-/* --- CLASSES DE ÍCONE COMPARTILHADAS --- */
-.icon-blue {
-    color: var(--primary-blue);
-    background-color: #eaf5fc;
+/* --- CLASSES DE ÍCONE COMPARTILHADAS (ATUALIZADAS) --- */
+.icon-red {
+    color: var(--primary-red);
+    background-color: var(--icon-primary-bg);
 }
 
-.icon-green {
-    color: var(--primary-green);
-    background-color: #eafaf1;
+.icon-grey {
+    color: var(--text-dark);
+    background-color: var(--icon-secondary-bg);
 }

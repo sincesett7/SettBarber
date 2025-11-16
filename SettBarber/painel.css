@@ -62,13 +62,13 @@
 }
 
 .appointments-today .status.upcoming {
-    color: var(--primary-blue);
-    background-color: #eaf5fc;
+    color: var(--primary-red);
+    background-color: var(--icon-primary-bg);
 }
 
 .appointments-today .status.completed {
     color: var(--text-light);
-    background-color: var(--bg-light);
+    background-color: var(--content-bg);
 }
 
 /* --- (PAINEL.HTML) PAINEL DE INSIGHTS --- */
@@ -134,7 +134,7 @@
 }
 
 .quick-actions .btn-add {
-    background-color: var(--primary-green);
+    background-color: var(--primary-red);
     color: var(--bg-white);
 }
 
@@ -143,7 +143,7 @@
 }
 
 .quick-actions .btn-remove {
-    background-color: var(--bg-light);
+    background-color: var(--content-bg);
     color: var(--text-light);
     border: 1px solid var(--border-color);
 }

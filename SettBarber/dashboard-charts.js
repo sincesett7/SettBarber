@@ -1,6 +1,12 @@
 // Aguarda o DOM carregar para executar os scripts
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Cores SettLabs
+    const corPrimaria = '#e53e3e';
+    const corSecundaria = '#2d2d2d';
+    const corTerciaria = '#999';
+    const corPrimariaTransparente = 'rgba(229, 62, 62, 0.1)';
+
     // --- GRÁFICO 1: EVOLUÇÃO DA RECEITA (GRÁFICO DE LINHA) ---
     const ctxReceita = document.getElementById('graficoReceita');
     if (ctxReceita) {
@@ -11,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 datasets: [{
                     label: 'Receita',
                     data: [120, 300, 450, 400, 600, 750, 850], // Dados de exemplo
-                    borderColor: '#3498db', // Azul
-                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    borderColor: corPrimaria, // Cor atualizada
+                    backgroundColor: corPrimariaTransparente, // Cor atualizada
                     fill: true,
                     tension: 0.3
                 }]
@@ -40,9 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     label: 'Nº de Serviços',
                     data: [85, 42, 30], // Dados de exemplo
                     backgroundColor: [
-                        '#3498db', // Azul
-                        '#2ecc71', // Verde
-                        '#9b59b6'  // Roxo
+                        corPrimaria,     // Cor atualizada
+                        corSecundaria,   // Cor atualizada
+                        corTerciaria     // Cor atualizada
                     ],
                     hoverOffset: 4
                 }]
@@ -64,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 datasets: [{
                     label: 'Nº de Agendamentos',
                     data: [5, 8, 10, 4, 6, 12, 15, 18, 22, 14], // Dados de exemplo
-                    backgroundColor: '#2ecc71', // Verde
+                    backgroundColor: corPrimaria, // Cor atualizada
                     borderRadius: 4
                 }]
             },

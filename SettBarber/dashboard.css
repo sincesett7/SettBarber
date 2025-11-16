@@ -23,13 +23,13 @@
 }
 
 .dashboard-filters .filter-btn:hover {
-    background-color: var(--bg-light);
+    background-color: var(--content-bg);
 }
 
 .dashboard-filters .filter-btn.active {
-    background-color: var(--primary-blue);
+    background-color: var(--primary-red);
     color: var(--bg-white);
-    border-color: var(--primary-blue);
+    border-color: var(--primary-red);
 }
 
 /* --- (DASHBOARD.HTML) Grade de KPIs --- */
@@ -129,5 +129,5 @@
 .top-clients-list strong {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--primary-green);
+    color: var(--text-dark); /* Alterado de verde para escuro */
 }
